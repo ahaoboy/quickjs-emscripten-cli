@@ -1,9 +1,9 @@
 {
   "name": "quickjs-emscripten-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "quickjs-emscripten-cli",
   "main": "dist/index.js",
-  "bin": "./cjs/cli.js",
+  "bin": "./bin/cli.js",
   "types": "./dist/index.d.ts",
   "author": "ahaoboy",
   "license": "MIT",
