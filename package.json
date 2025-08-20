@@ -9,6 +9,7 @@
   "license": "MIT",
   "homepage": "https://github.com/ahaoboy/quickjs-emscripten-cli",
   "files": [
+    "bin",
     "cjs",
     "esm"
   ],
