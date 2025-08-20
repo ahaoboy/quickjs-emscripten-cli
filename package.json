@@ -1,0 +1,31 @@
+{
+  "name": "quickjs-emscripten-cli",
+  "version": "0.1.0",
+  "description": "quickjs-emscripten-cli",
+  "main": "dist/index.js",
+  "bin": "./dist/cli.js",
+  "types": "./dist/index.d.ts",
+  "author": "ahaoboy",
+  "license": "MIT",
+  "homepage": "https://github.com/ahaoboy/quickjs-emscripten-cli",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahaoboy/quickjs-emscripten-cli.git"
+  },
+  "scripts": {
+    "build:lib": "tsc",
+    "build:cli": "esbuild ./src/cli.ts --bundle --outdir=./dist --platform=node",
+    "build": "pnpm run build:lib && pnpm run build:cli"
+  },
+  "keywords": [
+    "ansi"
+  ],
+  "dependencies": {
+    "@types/node": "^24.3.0",
+    "quickjs-emscripten": "^0.31.0",
+    "typescript": "^5.9.2"
+  }
+}
