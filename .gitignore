@@ -7,3 +7,5 @@ web
 dist
 node_modules
 pnpm-lock.yaml
+/cjs
+/esm

@@ -1,31 +1,48 @@
 {
   "name": "quickjs-emscripten-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "quickjs-emscripten-cli",
   "main": "dist/index.js",
-  "bin": "./dist/cli.js",
+  "bin": "./cjs/cli.js",
   "types": "./dist/index.d.ts",
   "author": "ahaoboy",
   "license": "MIT",
   "homepage": "https://github.com/ahaoboy/quickjs-emscripten-cli",
   "files": [
-    "dist"
+    "cjs",
+    "esm"
   ],
+  "exports": {
+    ".": {
+      "types": "./esm/index.d.ts",
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js",
+      "default": "./cjs/index.js"
+    },
+    "./tool": {
+      "types": "./esm/tool.d.ts",
+      "import": "./esm/tool.js",
+      "require": "./cjs/tool.js",
+      "default": "./cjs/tool.js"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ahaoboy/quickjs-emscripten-cli.git"
   },
   "scripts": {
-    "build:lib": "tsc",
-    "build:cli": "esbuild ./src/cli.ts --bundle --outdir=./dist --platform=node",
-    "build": "pnpm run build:lib && pnpm run build:cli"
+    "build:cjs": "tsc --outDir cjs --declaration false --module commonjs",
+    "build:esm": "tsc --outDir esm --module esnext",
+    "build": "npm run build:cjs && npm run build:esm"
   },
   "keywords": [
-    "ansi"
+    "quickjs-emscripten"
   ],
-  "dependencies": {
+  "devDependencies": {
     "@types/node": "^24.3.0",
-    "quickjs-emscripten": "^0.31.0",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "quickjs-emscripten": "^0.31.0"
   }
 }
