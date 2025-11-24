@@ -30,9 +30,6 @@ jobs:
     name: test-${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ahaoboy/js-engine-setup@v1
-        with:
-          strip: true
       - uses: oven-sh/setup-bun@v2
         with:
           # bun-version: 1.3.2
